@@ -15,9 +15,6 @@ export default defineConfig({
     postcss: {
       plugins: [tailwind(), autoprefixer()],
     },
-    modules:{
-      localsConvention: 'camelCaseOnly'
-    }
   },
   server:{
     port: 3000,

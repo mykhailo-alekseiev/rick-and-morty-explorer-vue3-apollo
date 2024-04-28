@@ -1,8 +1,5 @@
-<script setup lang="ts">
-</script>
-
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <main>Hello</main>
 </template>
+
+<script setup lang="ts"></script>
