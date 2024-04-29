@@ -1,14 +1,14 @@
 <template>
-  <div :class="cn('rounded-lg border bg-card text-card-foreground shadow-sm', props.class)">
-    <slot />
-  </div>
+  <div :class="cn('animate-pulse rounded-md bg-muted', props.class)" />
 </template>
 
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
 
-const props = defineProps<{
+interface SkeletonProps {
   class?: HTMLAttributes['class']
-}>()
+}
+
+const props = defineProps<SkeletonProps>()
 </script>
