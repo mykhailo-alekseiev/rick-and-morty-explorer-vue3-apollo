@@ -39,7 +39,7 @@
     @apply border-border;
   }
   body {
-    @apply font-roboto bg-background text-foreground;
+    @apply bg-background font-roboto text-foreground;
   }
 
   html,
