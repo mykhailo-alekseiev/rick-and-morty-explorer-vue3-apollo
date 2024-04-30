@@ -90,6 +90,7 @@
     "useServerHeadSafe": true,
     "useServerSeoMeta": true,
     "definePage": true,
-    "useCounterStore": true
+    "useCounterStore": true,
+    "useCharacter": true
   }
 }

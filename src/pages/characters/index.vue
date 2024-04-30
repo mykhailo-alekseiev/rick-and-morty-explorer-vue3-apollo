@@ -57,16 +57,13 @@
         </div>
       </div>
       <div v-else-if="characters" class="list">
-        <CharacterCard
+        <RouterLink
           v-for="character in characters"
+          :to="{ name: '/characters/[id]', params: { id: character.id } }"
           :key="character.id"
-          :id="character.id"
-          :name="character.name"
-          :image="character.image"
-          :gender="character.gender"
-          :species="character.species"
-          :status="character.status"
-        />
+        >
+          <CharacterCard v-bind="character" />
+        </RouterLink>
       </div>
     </div>
   </main>
@@ -83,6 +80,8 @@ import { Pagination, PaginationList, PaginationListItem } from '@/components/ui/
 useHead({
   title: 'Characters'
 })
+const router = useRouter()
+const route = useRoute()
 
 const { characters, loading, filters, totalPages } = useCharactersData()
 
@@ -144,6 +143,25 @@ function useCharactersData() {
   )
 
   const characters = computed(() => result.value?.characters.results ?? [])
+
+  watchEffect(() => {
+    router.push({
+      query: {
+        name: filters.name,
+        page: filters.page
+      },
+      replace: true
+    })
+  })
+
+  onMounted(() => {
+    if (route.query.name) {
+      filters.name = route.query.name as string
+    }
+    if (route.query.page) {
+      filters.page = parseInt(route.query.page as string)
+    }
+  })
 
   return {
     characters,
