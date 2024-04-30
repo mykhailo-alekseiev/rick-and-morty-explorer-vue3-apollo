@@ -34,18 +34,6 @@
           </nav>
         </SheetContent>
       </Sheet>
-      <div class="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
-        <form class="ml-auto flex-1 sm:flex-initial">
-          <div class="relative">
-            <Search class="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-            <Input
-              type="search"
-              placeholder="Search products..."
-              class="pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px]"
-            />
-          </div>
-        </form>
-      </div>
     </header>
     <main class="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
       <RouterView v-slot="{ Component }">
@@ -58,10 +46,7 @@
 </template>
 
 <script setup lang="ts">
-import { Menu, Search } from 'lucide-vue-next'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+import { Menu } from 'lucide-vue-next'
 
 useHead({
   titleTemplate: (title) => (title ? `${title} | Rick and Morty` : 'Rick and Morty')
